@@ -1,0 +1,91 @@
+import React from 'react';
+import {
+  LayoutDashboard, TrendingUp, Wallet, CreditCard,
+  Target, Settings, LogOut, Zap, ArrowLeftRight, Bot, User,
+} from 'lucide-react';
+import { useFinance } from '../../context/FinanceContext';
+import RoleSwitcher from '../ui/RoleSwitcher';
+
+const navItems = [
+  { id: 'dashboard',    label: 'Dashboard',    icon: LayoutDashboard },
+  { id: 'transactions', label: 'Transactions', icon: ArrowLeftRight },
+  { id: 'analytics',    label: 'Analytics',    icon: TrendingUp, badge: 'New' },
+  { id: 'wallet',       label: 'Wallet',       icon: Wallet },
+  { id: 'cards',        label: 'Cards',        icon: CreditCard },
+  { id: 'goals',        label: 'Goals',        icon: Target },
+];
+
+const systemItems = [
+  { id: 'ai-assistant', label: 'AI Assistant', icon: Bot, badge: 'AI' },
+  { id: 'settings',     label: 'Settings',     icon: Settings },
+];
+
+export default function Sidebar() {
+  const { activePage, setActivePage } = useFinance();
+
+  const NavButton = ({ id, label, icon: Icon, badge }) => (
+    <button
+      onClick={() => setActivePage(id)}
+      className={`nav-item w-full text-left group ${
+        activePage === id
+          ? 'nav-item-active'
+          : 'text-slate-400 hover:text-white hover:bg-white/5'
+      }`}
+    >
+      <Icon size={18} className={activePage === id ? 'text-accent-cyan' : 'group-hover:text-white transition-colors'} />
+      <span>{label}</span>
+      {badge && (
+        <span className={`ml-auto text-[10px] px-1.5 py-0.5 rounded-full font-mono ${
+          badge === 'AI'
+            ? 'bg-accent-purple/20 text-accent-purple'
+            : 'bg-accent-amber/20 text-accent-amber'
+        }`}>{badge}</span>
+      )}
+    </button>
+  );
+
+  return (
+    <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 bg-bg-secondary border-r border-border-subtle flex-shrink-0">
+      {/* Logo */}
+      <div className="flex items-center gap-3 px-6 py-6 border-b border-border-subtle">
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-cyan to-accent-green flex items-center justify-center flex-shrink-0">
+          <Zap size={16} className="text-bg-primary" />
+        </div>
+        <span className="font-display font-bold text-lg tracking-tight text-white">Moneta</span>
+        <span className="ml-auto text-[10px] font-mono bg-accent-cyan/10 text-accent-cyan px-2 py-0.5 rounded-full">PRO</span>
+      </div>
+
+      {/* Navigation */}
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+        <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest px-3 mb-2">Main Menu</p>
+        {navItems.map(item => <NavButton key={item.id} {...item} />)}
+
+        <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest px-3 mb-2 pt-4">System</p>
+        {systemItems.map(item => <NavButton key={item.id} {...item} />)}
+      </nav>
+
+      {/* Role Switcher — pinned before profile */}
+      <div className="px-4 py-3 border-t border-border-subtle">
+        <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest mb-2 px-1">Access Role</p>
+        <RoleSwitcher />
+      </div>
+
+      {/* User Profile */}
+      <div className="p-4 border-t border-border-subtle">
+        <button
+          onClick={() => setActivePage('profile')}
+          className={`glass-card p-3 flex items-center gap-3 w-full text-left hover:border-accent-cyan/20 transition-all ${activePage === 'profile' ? 'border-accent-cyan/30' : ''}`}
+        >
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-purple to-accent-cyan flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
+            AK
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-medium text-white truncate">Alex Kim</p>
+            <p className="text-xs text-slate-500 truncate">alex@moneta.io</p>
+          </div>
+          <User size={13} className={`flex-shrink-0 transition-colors ${activePage === 'profile' ? 'text-accent-cyan' : 'text-slate-600'}`} />
+        </button>
+      </div>
+    </aside>
+  );
+}

@@ -1,0 +1,30 @@
+export const allTransactions = [
+  { id: 1,  merchant: 'Salary Deposit',    category: 'Income',        type: 'income',  amount: 5800.00, date: '2024-12-27', icon: '💼', status: 'completed', note: 'December salary' },
+  { id: 2,  merchant: 'Freelance – UI/UX', category: 'Income',        type: 'income',  amount: 2400.00, date: '2024-12-24', icon: '💻', status: 'completed', note: 'Figma redesign project' },
+  { id: 3,  merchant: 'Dividend – AAPL',   category: 'Investment',    type: 'income',  amount: 340.00,  date: '2024-12-20', icon: '📈', status: 'completed', note: 'Q4 dividend' },
+  { id: 4,  merchant: 'Rental Income',     category: 'Income',        type: 'income',  amount: 1200.00, date: '2024-12-15', icon: '🏠', status: 'completed', note: 'Monthly rent' },
+  { id: 5,  merchant: 'Whole Foods',       category: 'Food',          type: 'expense', amount: -124.50, date: '2024-12-26', icon: '🛒', status: 'completed', note: 'Weekly groceries' },
+  { id: 6,  merchant: 'Netflix',           category: 'Entertainment', type: 'expense', amount: -15.99,  date: '2024-12-28', icon: '🎬', status: 'completed', note: 'Monthly subscription' },
+  { id: 7,  merchant: 'AWS Services',      category: 'Utilities',     type: 'expense', amount: -89.00,  date: '2024-12-25', icon: '☁️', status: 'completed', note: 'Cloud hosting' },
+  { id: 8,  merchant: 'Uber Eats',         category: 'Food',          type: 'expense', amount: -38.20,  date: '2024-12-23', icon: '🍕', status: 'completed', note: '' },
+  { id: 9,  merchant: 'Tesla Insurance',   category: 'Transport',     type: 'expense', amount: -210.00, date: '2024-12-22', icon: '🚗', status: 'pending',   note: 'Auto insurance' },
+  { id: 10, merchant: 'Apple Store',       category: 'Shopping',      type: 'expense', amount: -999.00, date: '2024-12-21', icon: '🍎', status: 'completed', note: 'AirPods Pro' },
+  { id: 11, merchant: 'Gym Membership',    category: 'Healthcare',    type: 'expense', amount: -49.99,  date: '2024-12-19', icon: '💪', status: 'completed', note: 'Monthly membership' },
+  { id: 12, merchant: 'Starbucks',         category: 'Food',          type: 'expense', amount: -7.80,   date: '2024-12-18', icon: '☕', status: 'completed', note: '' },
+  { id: 13, merchant: 'Spotify',           category: 'Entertainment', type: 'expense', amount: -9.99,   date: '2024-12-17', icon: '🎵', status: 'completed', note: 'Premium plan' },
+  { id: 14, merchant: 'Amazon',            category: 'Shopping',      type: 'expense', amount: -234.00, date: '2024-12-16', icon: '📦', status: 'completed', note: 'Christmas gifts' },
+  { id: 15, merchant: 'Doctor Visit',      category: 'Healthcare',    type: 'expense', amount: -150.00, date: '2024-12-14', icon: '🏥', status: 'completed', note: 'Annual checkup' },
+  { id: 16, merchant: 'Electricity Bill',  category: 'Utilities',     type: 'expense', amount: -112.00, date: '2024-12-13', icon: '⚡', status: 'completed', note: 'December bill' },
+  { id: 17, merchant: 'Uber',              category: 'Transport',     type: 'expense', amount: -24.50,  date: '2024-12-12', icon: '🚙', status: 'completed', note: '' },
+  { id: 18, merchant: 'Consulting Fee',    category: 'Income',        type: 'income',  amount: 800.00,  date: '2024-12-11', icon: '🤝', status: 'completed', note: 'Strategy consulting' },
+  { id: 19, merchant: 'H&M',              category: 'Shopping',      type: 'expense', amount: -89.99,  date: '2024-12-10', icon: '👗', status: 'completed', note: '' },
+  { id: 20, merchant: 'Internet Bill',     category: 'Utilities',     type: 'expense', amount: -59.99,  date: '2024-12-09', icon: '🌐', status: 'completed', note: 'Fiber plan' },
+  { id: 21, merchant: 'Bonus Payment',     category: 'Income',        type: 'income',  amount: 3000.00, date: '2024-12-08', icon: '🎁', status: 'completed', note: 'Year-end bonus' },
+  { id: 22, merchant: 'Cinema Tickets',    category: 'Entertainment', type: 'expense', amount: -32.00,  date: '2024-12-07', icon: '🎟️', status: 'completed', note: '' },
+  { id: 23, merchant: 'Gas Station',       category: 'Transport',     type: 'expense', amount: -68.00,  date: '2024-12-06', icon: '⛽', status: 'completed', note: '' },
+  { id: 24, merchant: 'Pharmacy',          category: 'Healthcare',    type: 'expense', amount: -34.20,  date: '2024-12-05', icon: '💊', status: 'completed', note: '' },
+  { id: 25, merchant: 'Rent Payment',      category: 'Housing',       type: 'expense', amount: -1800.00,date: '2024-12-01', icon: '🏠', status: 'completed', note: 'Monthly rent' },
+];
+
+export const CATEGORIES = ['All', 'Income', 'Food', 'Entertainment', 'Utilities', 'Transport', 'Shopping', 'Healthcare', 'Housing', 'Investment'];
+export const STATUSES   = ['All', 'completed', 'pending'];
